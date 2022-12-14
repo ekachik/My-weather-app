@@ -10,6 +10,7 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,7 +31,7 @@
     <div class="city-info">
           <div class="row">
             <div class="col">
-              <h1>Amsterdam</h1>
+              <h1 id="city"></h1>
             </div>
           </div>
 
@@ -60,28 +61,28 @@
                   class="weather-icon float-left"
                 />
                 <div class="float-left">
-                  <span class="temperature">19</span>
+                  <span class="temperature" id="temperature"></span>
                   <span class="units">
                     <a href="#">°C</a> |
                     <a href="#">°F</a>
                   </span>
                   </div>
                 </div>
-              <h2>Mostly cloudy</h2>
+              <h2 id="weather-description"></h2>
             </div>
 
             <div class="col-sm-4 weather-metrics">
               <h6>
                 <i class="fa-solid fa-gauge"></i> Pressure:
-                <span>1000</span> hPa
+                <span id="pressure"></span> hPa
               </h6>
               <h6>
                 <i class="fa-solid fa-droplet"></i> Humidity:
-                <span>50</span>%
+                <span id="humidity"></span>%
               </h6>
               <h6>
                 <i class="fa-solid fa-wind"></i> Wind:
-                <span>5</span> km/h
+                <span id="wind"></span> km/h
               </h6>
             </div class = "weather-metrics">
           </div>

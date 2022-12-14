@@ -59,7 +59,7 @@ span.temperature {
 .weather-icon {
   height: 64px;
   width: 64px;
-  margin-right: 10px;
+  margin-right: 0;
 }
 
 .units {
