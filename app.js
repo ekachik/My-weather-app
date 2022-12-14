@@ -51,8 +51,6 @@ let nowTime = new Date();
 currentTime.innerHTML = formatTime(nowTime);
 
 function displayWeatherCondition(response) {
-  console.log(response.data);
-  
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#weather-description");
@@ -76,8 +74,3 @@ let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${a
  axios.get(apiUrl).then(displayWeatherCondition);
 
 
-
-// link example
-//`https://api.openweathermap.org/data/2.5/weather?q=London&appid=3fdc8cfbf2d6fa0116c9ae92d3df4f79&units=metric`;
-
-//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
