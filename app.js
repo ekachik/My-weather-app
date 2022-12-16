@@ -51,12 +51,14 @@ let nowTime = new Date();
 currentTime.innerHTML = formatTime(nowTime);
 
 function displayWeatherCondition(response) {
+    console.log(response.data);
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#weather-description");
   let pressureElement = document.querySelector("#pressure");
   let humiidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
+  let iconElement = document.querySelector("#icon");
 
   cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -64,11 +66,20 @@ function displayWeatherCondition(response) {
   pressureElement.innerHTML = response.data.main.pressure;
   humiidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    ) ;
+    iconElement.setAttribute(
+    "alt",
+    response.data.weather[0].description
+    ) ;
+
 }
 
 let apiKey = "3fdc8cfbf2d6fa0116c9ae92d3df4f79";
 let units = "metric";
-let city = "Paris"
+let city = "Amsterdam";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
 
