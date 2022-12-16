@@ -51,7 +51,6 @@ let nowTime = new Date();
 currentTime.innerHTML = formatTime(nowTime);
 
 function displayWeatherCondition(response) {
-    console.log(response.data);
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#weather-description");
@@ -74,15 +73,24 @@ function displayWeatherCondition(response) {
     "alt",
     response.data.weather[0].description
     ) ;
-
 }
 
-let apiKey = "3fdc8cfbf2d6fa0116c9ae92d3df4f79";
-let units = "metric";
-let city = "Amsterdam";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
+function searchCity(city) {
+  let apiKey = "3fdc8cfbf2d6fa0116c9ae92d3df4f79";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayWeatherCondition);
+}
 
- axios.get(apiUrl).then(displayWeatherCondition);
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input").value;
+  searchCity(city);
+}
 
+searchCity("Amsterdam");
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
 
