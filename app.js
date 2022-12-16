@@ -1,5 +1,5 @@
-function formatDate(someDate) {
-  let date = someDate.getDate();
+function formattedDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -9,7 +9,7 @@ function formatDate(someDate) {
     "Friday",
     "Saturday",
   ];
-  let day = days[someDate.getDay()];
+  let day = days[date.getDay()];
   let months = [
     "January",
     "February",
@@ -24,31 +24,24 @@ function formatDate(someDate) {
     "November",
     "December",
   ];
-  let month = months[someDate.getMonth()];
+  let month = months[date.getMonth()];
   let formattedDate = `${day}, ${date} ${month}`;
   return formattedDate;
 }
 
-let currentDate = document.querySelector("#date");
-let nowDate = new Date();
-currentDate.innerHTML = formatDate(nowDate);
-
-function formatTime(someTime) {
-  let hours = someTime.getHours();
+function formattedTime(timestamp) {
+let date = new Date(timestamp);
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = someTime.getMinutes();
+  let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
   let formattedTime = `${hours}:${minutes}`;
   return formattedTime;
 }
-
-let currentTime = document.querySelector("#time");
-let nowTime = new Date();
-currentTime.innerHTML = formatTime(nowTime);
 
 function displayWeatherCondition(response) {
   let cityElement = document.querySelector("#city");
@@ -58,6 +51,8 @@ function displayWeatherCondition(response) {
   let humiidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
+  let dateElement = document.querySelector("#date");
+  let timeElement = document.querySelector("#time");
 
   cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -73,6 +68,8 @@ function displayWeatherCondition(response) {
     "alt",
     response.data.weather[0].description
     ) ;
+    dateElement.innerHTML = formattedDate(response.data.dt * 1000);
+    timeElement.innerHTML = formattedTime(response.data.dt * 1000);
 }
 
 
