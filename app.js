@@ -1,5 +1,6 @@
 function formattedDate(timestamp) {
-  let date = new Date(timestamp);
+  let now = new Date(timestamp);
+  let date = now.getDate();
   let days = [
     "Sunday",
     "Monday",
@@ -9,7 +10,7 @@ function formattedDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = days[date.getDay()];
+  let day = days[now.getDay()];
   let months = [
     "January",
     "February",
@@ -24,18 +25,18 @@ function formattedDate(timestamp) {
     "November",
     "December",
   ];
-  let month = months[date.getMonth()];
+  let month = months[now.getMonth()];
   let formattedDate = `${day}, ${date} ${month}`;
   return formattedDate;
 }
 
 function formattedTime(timestamp) {
-let date = new Date(timestamp);
-  let hours = date.getHours();
+  let now = new Date(timestamp);
+  let hours = now.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = date.getMinutes();
+  let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -63,15 +64,11 @@ function displayWeatherCondition(response) {
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    ) ;
-    iconElement.setAttribute(
-    "alt",
-    response.data.weather[0].description
-    ) ;
-    dateElement.innerHTML = formattedDate(response.data.dt * 1000);
-    timeElement.innerHTML = formattedTime(response.data.dt * 1000);
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+  dateElement.innerHTML = formattedDate(response.data.dt * 1000);
+  timeElement.innerHTML = formattedTime(response.data.dt * 1000);
 }
-
 
 function searchCity(city) {
   let apiKey = "3fdc8cfbf2d6fa0116c9ae92d3df4f79";
