@@ -22,6 +22,11 @@ h2 {
 h2:first-letter {
 text-transform: capitalize;
 }
+
+a {
+  text-decoration: none;
+}
+
 footer {
   text-align: center;
   margin: 20px;
@@ -39,6 +44,13 @@ span.temperature {
   max-width: 750px;
   background-color: antiquewhite;
 }
+
+.search-container {
+  background-color: antiquewhite;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
 
 .city-info {
   background: white;
@@ -68,4 +80,14 @@ span.temperature {
 .units {
   position: relative;
   top: -20px;
+}
+
+.active {
+  color: black;
+  cursor:default;
+}
+
+.active:hover {
+  text-decoration: none;
+  color: black;
 }
