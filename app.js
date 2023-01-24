@@ -44,6 +44,37 @@ function formattedTime(timestamp) {
   return formattedTime;
 }
 
+function displaySixDaysForecast() {
+  let sixDaysForecastElement = document.querySelector("#six-days-forecast");
+  let days = ["Thu", "Fri", "Sat"];
+  let sixDaysForecastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    sixDaysForecastHTML =
+      sixDaysForecastHTML +
+      `
+      <div class="col-2">
+         <div class = "six-days-forecast-weekday">
+          ${day}
+         </div>
+         <img
+                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                alt=""
+                width="42"
+              />
+
+             <div class="six-days-temperatures">
+                  <span class="six-days-temperature-max"> 18° </span>
+                  <span class="six-days-temperature-min"> 12° </span>
+            </div>    
+      </div>
+  `;
+  });
+
+  sixDaysForecastHTML = sixDaysForecastHTML + `</div>`;
+  sixDaysForecastElement.innerHTML = sixDaysForecastHTML;
+}
+
 function displayWeatherCondition(response) {
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
@@ -55,7 +86,7 @@ function displayWeatherCondition(response) {
   let dateElement = document.querySelector("#date");
   let timeElement = document.querySelector("#time");
 
-celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = response.data.main.temp;
 
   cityElement.innerHTML = response.data.name;
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
@@ -109,9 +140,9 @@ function showFahrenheitTemp(event) {
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
-function showCelsiusTemp(event){
-   event.preventDefault();
-   celsiusUnit.classList.add("active");
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  celsiusUnit.classList.add("active");
   fahrenheitUnit.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
@@ -132,3 +163,4 @@ let celsiusUnit = document.querySelector("#celsius-link");
 celsiusUnit.addEventListener("click", showCelsiusTemp);
 
 searchCity("Amsterdam");
+displaySixDaysForecast();
