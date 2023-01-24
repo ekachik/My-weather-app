@@ -20,7 +20,7 @@ h2 {
 }
 
 h2:first-letter {
-text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 a {
@@ -50,7 +50,6 @@ span.temperature {
   border-radius: 10px;
   margin-bottom: 5px;
 }
-
 
 .city-info {
   background: white;
@@ -84,10 +83,31 @@ span.temperature {
 
 .active {
   color: black;
-  cursor:default;
+  cursor: default;
 }
 
 .active:hover {
   text-decoration: none;
   color: black;
+}
+
+.six-days-forecast {
+  background: white;
+  padding: 10px;
+  margin: 20px 0 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.six-days-forecast-weekday {
+  font-size: 18px;
+  opacity: 0.6;
+}
+
+.six-days-temperatures {
+  font-size: 14px;
+}
+
+.six-days-temperature-min {
+  opacity: 0.6;
 }
