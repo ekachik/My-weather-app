@@ -44,7 +44,8 @@ function formattedTime(timestamp) {
   return formattedTime;
 }
 
-function displaySixDaysForecast() {
+function displaySixDaysForecast(response) {
+  console.log(response.data.daily);
   let sixDaysForecastElement = document.querySelector("#six-days-forecast");
   let days = ["Thu", "Fri", "Sat"];
   let sixDaysForecastHTML = `<div class="row">`;
@@ -75,6 +76,13 @@ function displaySixDaysForecast() {
   sixDaysForecastElement.innerHTML = sixDaysForecastHTML;
 }
 
+function getSixDaysForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "3fdc8cfbf2d6fa0116c9ae92d3df4f79";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displaySixDaysForecast);
+}
+
 function displayWeatherCondition(response) {
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
@@ -101,6 +109,8 @@ function displayWeatherCondition(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
   dateElement.innerHTML = formattedDate(response.data.dt * 1000);
   timeElement.innerHTML = formattedTime(response.data.dt * 1000);
+
+  getSixDaysForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -163,4 +173,3 @@ let celsiusUnit = document.querySelector("#celsius-link");
 celsiusUnit.addEventListener("click", showCelsiusTemp);
 
 searchCity("Amsterdam");
-displaySixDaysForecast();
