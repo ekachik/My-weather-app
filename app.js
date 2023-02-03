@@ -60,7 +60,7 @@ function displaySixDaysForecast(response) {
   let sixDaysForecastHTML = `<div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
-    if (index >= 1 && index <= 6) {
+    if (index < 6) {
       sixDaysForecastHTML =
         sixDaysForecastHTML +
         `
@@ -157,36 +157,10 @@ function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  celsiusUnit.classList.remove("active");
-  fahrenheitUnit.classList.add("active");
-
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function showCelsiusTemp(event) {
-  event.preventDefault();
-  celsiusUnit.classList.add("active");
-  fahrenheitUnit.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
 let currentLocationButton = document.querySelector("#current-location");
 currentLocationButton.addEventListener("click", getCurrentPosition);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
-
-let fahrenheitUnit = document.querySelector("#fahrenheit-link");
-fahrenheitUnit.addEventListener("click", showFahrenheitTemp);
-
-let celsiusUnit = document.querySelector("#celsius-link");
-celsiusUnit.addEventListener("click", showCelsiusTemp);
 
 searchCity("Amsterdam");
