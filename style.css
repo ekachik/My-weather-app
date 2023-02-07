@@ -1,7 +1,9 @@
 body {
   font-family: "Anek Latin", sans-serif;
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/066/327/original/Shutterstock_256844800_%281%29.jpg?1675775278");
 }
 header {
+  color: white;
   text-align: center;
   font-size: 35px;
   font-weight: 500;
@@ -24,10 +26,15 @@ h2:first-letter {
 }
 
 a {
-  text-decoration: none;
+  color: white;
+}
+
+a:visited {
+  color: #80b6f7;
 }
 
 footer {
+  color: white;
   text-align: center;
   margin: 20px;
 }
@@ -42,11 +49,12 @@ span.temperature {
   border-radius: 10px;
   padding: 20px;
   max-width: 750px;
-  background-color: antiquewhite;
+  background-color: #0e477c;
+  opacity: 0.85;
 }
 
 .search-container {
-  background-color: antiquewhite;
+  background-color: #0e477c;
   border-radius: 10px;
   margin-bottom: 5px;
 }
@@ -101,7 +109,7 @@ span.temperature {
 
 .six-days-forecast-weekday {
   font-size: 18px;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .six-days-temperatures {
@@ -109,5 +117,5 @@ span.temperature {
 }
 
 .six-days-temperature-min {
-  opacity: 0.6;
+  opacity: 0.7;
 }
