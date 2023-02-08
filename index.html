@@ -27,9 +27,8 @@
   <body>
     <div class="container">
       <header>The Weather Oracle <i class="fa-solid fa-cloud-bolt"></i></header>
-     <div class="weather-container-app">
-
-<div class="search-container">
+      <div class="weather-container-app">
+        <div class="search-container">
           <form id="search-form">
             <div class="row">
               <div class="col-sm-5">
@@ -64,7 +63,7 @@
           </form>
         </div>
 
-    <div class="city-info">
+        <div class="city-info">
           <div class="row">
             <div class="col">
               <h1 id="city"></h1>
@@ -84,24 +83,18 @@
               <span id="time"></span>
             </div>
           </div>
-        </div class="city-info">
-    
-    
-<div class="weather-status-for-city">
+        </div>
+
+        <div class="weather-status-for-city">
           <div class="row">
             <div class="col-sm-6">
               <div class="d-flex">
-                <img
-                  src=""
-                  id = "icon"
-                  class="weather-icon float-left"
-                  
-                />
+                <img src="" id="icon" class="weather-icon float-left" />
                 <div class="float-left">
                   <span class="temperature" id="temperature"></span>
                   <span class="units"> °C</span>
-                  </div>
                 </div>
+              </div>
               <h2 id="weather-description"></h2>
             </div>
 
@@ -118,19 +111,19 @@
                 <i class="fa-solid fa-wind"></i> Wind:
                 <span id="wind"></span> m/s
               </h6>
-            </div class = "weather-metrics">
+            </div>
           </div>
-        </div class="weather-status-for-city">
+        </div>
 
-        
-        <div class="six-days-forecast" id = "six-days-forecast">
-        </div class="six-days-forecast">
-        
-
-        </div class="weather-container-app">
-<footer> <a href = "https://github.com/ekachik/My-weather-app" target = "_blank"> Open-source code </a> by Ekaterina Chikovskaia</footer>
-
-    </div class="container">
+        <div class="six-days-forecast" id="six-days-forecast"></div>
+      </div>
+      <footer>
+        <a href="https://github.com/ekachik/My-weather-app" target="_blank">
+          Open-source code
+        </a>
+        by Ekaterina Chikovskaia
+      </footer>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
