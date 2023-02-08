@@ -89,16 +89,6 @@ span.temperature {
   top: -20px;
 }
 
-.active {
-  color: black;
-  cursor: default;
-}
-
-.active:hover {
-  text-decoration: none;
-  color: black;
-}
-
 .six-days-forecast {
   background: white;
   padding: 10px;
